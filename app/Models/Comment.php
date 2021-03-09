@@ -20,7 +20,7 @@ class Comment extends Model
     }
 
     public function approve(){
-        $this->status = sync();
+        $this->status = true;
         $this->save();
     }
 }
