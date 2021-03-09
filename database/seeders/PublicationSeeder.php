@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Publication;
 
 class PublicationSeeder extends Seeder
 {
@@ -13,6 +14,6 @@ class PublicationSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Publication::factory(10)->create();
     }
 }

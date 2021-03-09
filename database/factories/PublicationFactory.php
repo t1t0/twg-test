@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Publication;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
 
 class PublicationFactory extends Factory
 {
@@ -21,8 +22,14 @@ class PublicationFactory extends Factory
      */
     public function definition()
     {
+        $users = User::all();
+        $user = $this->faker->randomElement($array = $users);
         return [
-            //
+            'user_id' => $user->id,
+            'title' => $this->faker->sentence($nbWords = 6, $variableNbWords = true),
+            'content' => $this->faker->paragraph($nbSentences = 3, $variableNbSentences = true),
+            'created_at' => now(),
+            'updated_at' => now()
         ];
     }
 }
