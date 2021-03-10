@@ -18,7 +18,7 @@ class CreateCommentsTable extends Migration
             $table->unsignedBigInteger('publication_id');
             $table->unsignedBigInteger('user_id');
             $table->text('content');
-            $table->boolean('status');
+            $table->boolean('status')->default(false);
             $table->timestamps();
 
             $table->foreign('publication_id')
