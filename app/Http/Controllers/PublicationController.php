@@ -6,6 +6,7 @@ use App\Models\Publication;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Builder;
 
 class PublicationController extends Controller
 {
@@ -108,5 +109,11 @@ class PublicationController extends Controller
     {
         $publication->delete();
         return back();
+    }
+
+    public function hola(){
+        $publications = Publication::whereHas('comments', function(Builder $query){ $query->where('content', 'like', '%Hola%')->where('status', '=', '1'); })->get();
+
+        return view('hola', ["posts" => $publications]);
     }
 }

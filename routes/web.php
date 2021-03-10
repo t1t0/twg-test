@@ -29,4 +29,6 @@ Route::delete('/publications/{publication}', [PublicationController::class, 'des
 
 Route::patch('/comments/{comment}', [CommentController::class, 'approveComment'])->middleware(['auth'])->name('comment.approve');
 Route::post('/comments', [CommentController::class, 'store'])->middleware(['auth'])->name('comment.store');
+
+Route::get('/hola', [PublicationController::class, 'hola']);
 require __DIR__.'/auth.php';
